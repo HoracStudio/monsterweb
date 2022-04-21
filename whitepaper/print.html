@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Monster Kings Whitepaper</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "rust" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="nft/index.html"><strong aria-hidden="true">2.</strong> NFT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="nft/rules.html"><strong aria-hidden="true">2.1.</strong> Rules</a></li><li class="chapter-item expanded "><a href="nft/rarity.html"><strong aria-hidden="true">2.2.</strong> Rarity</a></li><li class="chapter-item expanded "><a href="nft/generation.html"><strong aria-hidden="true">2.3.</strong> Generations</a></li><li class="chapter-item expanded "><a href="nft/battles.html"><strong aria-hidden="true">2.4.</strong> Battles</a></li></ol></li><li class="chapter-item expanded "><a href="nft/sales.html"><strong aria-hidden="true">3.</strong> Presales</a></li><li class="chapter-item expanded "><a href="Gameplay.html"><strong aria-hidden="true">4.</strong> Gameplay</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="gameplay/wheels.html"><strong aria-hidden="true">4.1.</strong> Lucky Roulette</a></li><li class="chapter-item expanded "><a href="gameplay/growingup.html"><strong aria-hidden="true">4.2.</strong> Fostering</a></li><li class="chapter-item expanded "><a href="gameplay/breeding.html"><strong aria-hidden="true">4.3.</strong> Breeding</a></li><li class="chapter-item expanded "><a href="gameplay/quest.html"><strong aria-hidden="true">4.4.</strong> Tasks</a></li><li class="chapter-item expanded "><a href="gameplay/levels.html"><strong aria-hidden="true">4.5.</strong> Adventure</a></li><li class="chapter-item expanded "><a href="gameplay/teambattles.html"><strong aria-hidden="true">4.6.</strong> Team Battles</a></li><li class="chapter-item expanded "><a href="gameplay/ingameshop.html"><strong aria-hidden="true">4.7.</strong> Shops</a></li><li class="chapter-item expanded "><a href="gameplay/ranking.html"><strong aria-hidden="true">4.8.</strong> Rankings</a></li></ol></li><li class="chapter-item expanded "><a href="tokenomics/index.html"><strong aria-hidden="true">5.</strong> The Monster Kings Tokenomics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tokenomics/mctutilites.html"><strong aria-hidden="true">5.1.</strong> MCT</a></li><li class="chapter-item expanded "><a href="tokenomics/mntutilites.html"><strong aria-hidden="true">5.2.</strong> MNT</a></li></ol></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">6.</strong> Roadmap</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Monster Kings Whitepaper</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The Monster Kings is a world where all the NFTs are created by you. Among the thousands of possibilities, find what you like and what is valuable. Having a monster allows you to start adventures.</p>
+<p>You can also raise your monsters during your adventures to make them rarer and more powerful. You can also form your own team of monsters and use the power of spells to defeat powerful opponents.</p>
+<p>Of course, the rarer and more powerful your monsters are, the more money you will earn.</p>
+<p align="center">
+<img src="/images/logo.png">
+</p>
+<p>Rich gameplay, high player rewards, low participation threshold and highly rewarding group battles ...... are waiting for you to challenge.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nft-overview"><a class="header" href="#nft-overview">NFT Overview</a></h1>
+<p>In the world of The Monster Kings, the main NFTs are monsters.</p>
+<p align="center">
+<img src="nft//images/nfteg.png">
+</p>
+<p>Each monster consists of 21 parts, each with an average of dozens of different features, and hundreds of colours. This gives each created monster a great uniqueness.</p>
+<p>The probability of appearance of each feature depends on their respective rarity. And the colours affects the monster's combat attributes in some ways. Of course, the fighting ability of a monster depends mainly on its grade and level.</p>
+<p>The rarity and fighting ability of the monster in turn affects the amount of income in many ways. They are the ticket to all competitions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generating-rules"><a class="header" href="#generating-rules">Generating Rules</a></h1>
+<p>Each monster is made up of 21 parts, but not every monster has all 21 parts, depending on its grade. The higher the grade, the more parts will grow.</p>
+<p>There are 5 different grades of monsters. The different grades correspond to the probability of different rare parts appearing.</p>
+<table><thead><tr><th>General</th><th>Not Bad</th><th>Good</th><th>Excellent</th><th>Perfect</th></tr></thead><tbody>
+<tr><td><img src="nft//images/flag0.png" alt="1" /></td><td><img src="nft//images/flag1.png" alt="2" /></td><td><img src="nft//images/flag2.png" alt="3" /></td><td><img src="nft//images/flag3.png" alt="4" /></td><td><img src="nft//images/flag4.png" alt="5" /></td></tr>
+<tr><td>20%</td><td>35%</td><td>50%</td><td>65%</td><td>80%</td></tr>
+</tbody></table>
+<p>Each monster has a total of 10 levels and each level increase grows at least one part.</p>
+<p>When level 10 is reached, the monster completes the growth process and its rarity and combat ability will no longer change.</p>
+<p>Full level monsters that have completed the growth process can participate in games such as battle ranking and can start breeding.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rarity"><a class="header" href="#rarity">Rarity</a></h1>
+<p>The rarity of a monster is the sum of the rarity of all its parts.</p>
+<p>The higher the rarity of the monster, the more special features it has, and then the more valuable it is to collect.</p>
+<p>Monsters with above average rarity in the same grade will be given special marks.</p>
+<table><thead><tr><th></th><th></th></tr></thead><tbody>
+<tr><td><img src="nft//images/medalSilver.png" alt="1" /></td><td>A silver medal indicates that the monster's rarity is higher than the average score of the same grade.</td></tr>
+<tr><td><img src="nft//images/medalGold.png" alt="2" /></td><td>A gold medal indicates that the monster's rarity is well above the average score of the same grade.</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generations"><a class="header" href="#generations">Generations</a></h1>
+<p>All monsters can reproduce for a maximum of 7 generations.</p>
+<p>Only the 10,000 monsters sold in the pre-order phase are Generation 0. Each Generation 0 monster is level 10 (maximum level).</p>
+<p>In the future, all forms of the monster purchased through the official blind box will be Generation 1.</p>
+<p>When breeding, two monsters give birth to a baby whose generation is the maximum of the parents' generation plus one.</p>
+<table><thead><tr><th>Dad's Generation</th><th>Mum's Generation</th><th>Baby's Generation</th></tr></thead><tbody>
+<tr><td>3</td><td>5</td><td>6</td></tr>
+<tr><td>4</td><td>1</td><td>5</td></tr>
+</tbody></table>
+<p>When the monster's generation reaches 7, it can no longer reproduce.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="battle"><a class="header" href="#battle">Battle</a></h1>
+<p>Each adult monster (level 10) can participate in any type of battle game, such as Treasure Map.</p>
+<p align="center">
+<img src="nft//images/mapeg.png">
+</p>
+<p>In the battle between individual monsters, the grade determines the base combat attribute value of the monster, the rarity affects the defence value, and the colour deviation affects the attack power of the monster.</p>
+<p>Simply put, the higher the grade, the stronger the overall ability. On the basis of the same grade, the higher the rarity, the stronger the defence ability. The stronger the combat ability, the higher the attack power.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="presales"><a class="header" href="#presales">Presales</a></h1>
+<p>Only Generation 0 monsters will be sold in the pre-sale, and only 10,000 will be available in total.</p>
+<p>All Generation 0 monsters are sold using player creation. This means that the avatar of each Generation 0 monster is created and chosen by the player.</p>
+<p>After the pre-sale ends, no more Generation 0 monsters will be available for sale.</p>
+<p align="center">
+<img src="nft//images/mint.png">
+</p>
+<p>The highest grade a monster can reach in pre-sale is Excellent. And Excellent is the necessary foundation for breeding Perfect monsters.</p>
+<p>It is worth noting that all monsters sold during the pre-sale are full level monsters. After the pre-sale ends, players will only be able to buy monster eggs in the store or buy monsters from other players.</p>
+<table><thead><tr><th>General</th><th>Not Bad</th><th>Good</th></tr></thead><tbody>
+<tr><td><img src="nft//images/pegg1.png" alt="1" /></td><td><img src="nft//images/pegg2.png" alt="2" /></td><td><img src="nft//images/pegg3.png" alt="3" /></td></tr>
+</tbody></table>
+<p>The monster eggs that players get can be raised in the game.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="game-overview"><a class="header" href="#game-overview">Game Overview</a></h1>
+<p>The core gameplay revolves around raising monsters, adventuring and winning races.</p>
+<p>In the game, luck is just as important as intelligence. But overall, the more quests you complete each day, and the more times you spin the Lucky Roulette, and help the monsters grow better and faster, the more you will gain.</p>
+<p>Players can go and steal other people's gold, and of course they can strengthen their defence to prevent others from stealing their own gold.</p>
+<table><thead><tr><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody>
+<tr><td><img src="/images/game0.jpg" alt="0" /></td><td><img src="/images/game2.jpg" alt="2" /></td><td><img src="/images/game3.jpg" alt="3" /></td><td><img src="/images/game4.jpg" alt="4" /></td><td><img src="/images/game1.jpg" alt="1" /></td></tr>
+</tbody></table>
+<p>Of course, we also need to pay attention to the state of the monsters, they will become unhappy when they are hungry, and their ability to fight will be reduced.</p>
+<p>Players can also collect component features from other monsters during the adventure, which can help them determine the direction of their evolution as they grow.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lucky-roulette"><a class="header" href="#lucky-roulette">Lucky Roulette</a></h1>
+<p>The Lucky Roulette is the most central part of the entire game. Players can trigger an event by putting in energy.</p>
+<p>Every event can be different. For example, pick up a bag of gold, strengthen the camp's defences, steal other players' gold, complete a monster forest adventure, go head-to-head with other players, absorb other monsters' features, feed your own monsters, and so on.</p>
+<p align="center">
+<img src="gameplay//images/game0.jpg">
+</p>
+<p>If you want to play a little faster, you can put more energy into a turn and then you will get more rewards. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fostering"><a class="header" href="#fostering">Fostering</a></h1>
+<p>Once each monster egg hatches into a monster, it can grow by feeding magic power. Magic power bottles can be obtained by completing quests or winning battles.</p>
+<p>Each time a monster levels up, a new body part grows, along with its rarity and combat ability. Once a monster has grown to level 10 it can no longer be fed magic and its rarity and combat ability will no longer be able to increase.</p>
+<p align="center">
+<img src="gameplay//images/game2.jpg">
+</p>
+<p>Monsters' hunger level increases after completing a battle and when they are very hungry, their mood deteriorates, which causes them to be less capable in battle. So players need to pay attention to this and feed them monster cookies instantly.</p>
+<p>Each monster has different skills depending on the base colour. These skills are not very useful in individual battles, but are useful in team battles.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="breeding"><a class="header" href="#breeding">Breeding</a></h1>
+<p>Once a monster reaches level 10, it can lay a egg with another level 10 monster, if neither of the two monsters reach generation 7.</p>
+<p>The monster egg may be in a higher grade than its parents, but in most cases, it is the same as the parents.</p>
+<table><thead><tr><th></th><th></th><th></th></tr></thead><tbody>
+<tr><td><img src="gameplay//images/pegg1.png" alt="1" /></td><td><img src="gameplay//images/pegg2.png" alt="2" /></td><td><img src="gameplay//images/pegg3.png" alt="3" /></td></tr>
+</tbody></table>
+<p>Monster eggs hatch and become level 1 monsters. As they grow, almost half of their body parts will inherit their parents' features. Players can also invest features collected from other monsters as they level up, thus increasing the probability of a specific feature being selected.</p>
+<p align="center">
+<img src="gameplay//images/game4.jpg">
+</p>
+<p>The young monsters can continue to breed the next generation when they grow up. However, if it is already in its 7th generation, then it will not be able to continue breeding offspring.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tasks"><a class="header" href="#tasks">Tasks</a></h1>
+<p>Completing tasks is the way to get higher rewards.</p>
+<p>There are randomly generated tasks in the game every day, and you can get double rewards for completing them consecutively.</p>
+<p align="center">
+<img src="gameplay//images/taskbg.png">
+</p>
+<p>It should be noted that all tasks are timed and need to be completed within the specified time, if the time is exceeded, the task will fail.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adventure"><a class="header" href="#adventure">Adventure</a></h1>
+<p>The game has 10 base challenges that accompany the player's growth process.</p>
+<p>Each successful challenge will correspond to the opening of a new game feature. For example, when the first challenge is successful, the in-game store will be opened. After the third successful challenge, the formation panel will be opened. After the sixth successful challenge, the monster breeding will be opened. After the eighth successful challenge, the ranking that can win MNT will be opened. And so on.</p>
+<p align="center">
+<img src="gameplay//images/combaticon.png">
+</p>
+<p>After players complete all the basic challenges, it will not only open all the game play, but the pass reward will also get a MNT treasure chest.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="team-battles"><a class="header" href="#team-battles">Team Battles</a></h1>
+<p>Monsters are fought in teams, which means players need to use their intelligence to arrange their squads in a more effective way to make the most of the monsters' collaborative value.</p>
+<p align="center">
+<img src="gameplay//images/game3.jpg">
+</p>
+<p>Monsters with the same skill will combine their skills into a powerful new skill if they stand in a line. However, different skills will also combine to create powerful new skills if placed in specific locations.</p>
+<p>Players can explore more ways to combine skills to better play the monsters' combat abilities.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shops"><a class="header" href="#shops">Shops</a></h1>
+<p>The in-game store mainly uses gold and MNT as the settlement currency and sells some common props in the game.</p>
+<p>The items for sale are mainly energy, monster cookies, feature scrolls, breeding stones and defensive shields.</p>
+<p align="center">
+<img src="gameplay//images/game1.jpg">
+</p>
+<p>Rare and special props within the game, as well as monsters, will be sold by players at auction.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rankings"><a class="header" href="#rankings">Rankings</a></h1>
+<p>The ranking is divided into player battle ranking, and pet ranking. Pets are the monsters owned by the players.</p>
+<p>Each battle between players increases the ranking points of the winning side and decreases the points of the losing side.</p>
+<p>The ranking of pets, on the other hand, is a rarity ranking of all full-level monsters and do not need to be involved in combat.</p>
+<p align="center">
+<img src="gameplay//images/game5.jpg">
+</p>
+<p>There will be separate reward treasure chests for ranking, and each time the countdown ends, a generous reward will be given to the top ten players or monster owners.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-monster-kings-tokenomics"><a class="header" href="#the-monster-kings-tokenomics">The Monster Kings Tokenomics</a></h1>
+<p>There are two types of tokens in the game as below:</p>
+<ul>
+<li>Community token(MCT)</li>
+<li>The monster kings token(MNT)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mct"><a class="header" href="#mct">MCT</a></h1>
+<ul>
+<li>The Community token of the monster kings</li>
+<li>Token Total Supply: 100,000,000 MCT</li>
+</ul>
+<h2 id="utilites"><a class="header" href="#utilites">Utilites</a></h2>
+<ul>
+<li>Community Governance</li>
+<li>Stake to earn rewards</li>
+<li>Stake to share project revenue</li>
+</ul>
+<h2 id="how-to-get-the-mct"><a class="header" href="#how-to-get-the-mct">How to get the MCT</a></h2>
+<ul>
+<li>You can buy and sell on the exchange</li>
+<li>Play the game and earn the MCT rewards</li>
+<li>Join our affiliate marketing program</li>
+<li>Staking for reward</li>
+</ul>
+<h2 id="allocation"><a class="header" href="#allocation">Allocation</a></h2>
+<table><thead><tr><th></th><th>Allocation</th><th>Amount</th><th>Initial Circulating</th><th>TGE</th><th>Vesting Schedule</th></tr></thead><tbody>
+<tr><td>Private round</td><td>5%</td><td>5,000,000</td><td>250,000</td><td>5%</td><td>5% at TGE, 3 month lock up, then linear vesting 12 months</td></tr>
+<tr><td>Staking in preonline</td><td>2.5%</td><td>2,500,000</td><td>1,250,000</td><td>50%</td><td>50% at TGE, one month after 50%</td></tr>
+<tr><td>Game Incentives</td><td>49%</td><td>49,000,000</td><td>0</td><td>0%</td><td>Starting unlock when games online, then linear vesting 4 years</td></tr>
+<tr><td>Team</td><td>10%</td><td>10,000,000</td><td>100,000</td><td>1%</td><td>1% at TGE, Fully lock 6 months, then linear vesting 4 years</td></tr>
+<tr><td>Advisor</td><td>3%</td><td>3,000,000</td><td>0</td><td>0%</td><td>Fully lock 6 months, then linear vesting 4 years</td></tr>
+<tr><td>Marketing &amp; Partnership</td><td>10%</td><td>10,000,000</td><td>500,000</td><td>5%</td><td>Unlock 5% 7 days after TGE, then Linear vesting 2 years</td></tr>
+<tr><td>Eco-Fund</td><td>8%</td><td>8,000,000</td><td>400,000</td><td>5%</td><td>Unlock 5% at TGE, one month after 5%, then linear vesting for 12 months</td></tr>
+<tr><td>Reserves</td><td>12.5%</td><td>12,500,000</td><td></td><td></td><td>Reserves for liquidity</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mnt"><a class="header" href="#mnt">MNT</a></h1>
+<p>The monster kings token for in-game shop</p>
+<h2 id="utilites-1"><a class="header" href="#utilites-1">Utilites</a></h2>
+<ul>
+<li>Play to earn</li>
+<li>Payment
+MNT is the game currency that players use to purchase assets, exchange items in game marketplace.</li>
+</ul>
+<h2 id="how-to-get-the-mnt"><a class="header" href="#how-to-get-the-mnt">How to get the MNT</a></h2>
+<ul>
+<li>Deposit 1 MATIC and you will get 10 MNT</li>
+<li>Play the game and earning the MNT rewards</li>
+<li>Stake MCT and you will share the game revenue settled in MNT</li>
+</ul>
+<h2 id="allocation-1"><a class="header" href="#allocation-1">Allocation</a></h2>
+<ul>
+<li>Token Supply: 100,000,000,000</li>
+<li>MNT was strictly linked to matic(polygon)</li>
+<li>Linked exchange rate was: 1 MATIC = 10 MNT</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<p>We plan to substantially complete the entire project by 2022.</p>
+<p><img src="/images/roadmapbg.jpg" alt="1" /></p>
+<h3 id="q2-2022"><a class="header" href="#q2-2022">Q2 2022</a></h3>
+<ul>
+<li>NFT Launches</li>
+<li>Launch of pre-sale partners program</li>
+</ul>
+<hr />
+<h3 id="q3-2022"><a class="header" href="#q3-2022">Q3 2022</a></h3>
+<ul>
+<li>MCT Token Launch</li>
+<li>Launch of Treasure Forest Map</li>
+<li>Launch of monster competition with ranking incentives</li>
+</ul>
+<hr />
+<h3 id="q4-2022"><a class="header" href="#q4-2022">Q4 2022</a></h3>
+<ul>
+<li>Marketplace</li>
+<li>MNT Token Launch</li>
+<li>Open monster farming (hatching, growing, adventuring, fighting, breeding)</li>
+</ul>
+<hr />
+<h3 id="q1-2023"><a class="header" href="#q1-2023">Q1 2023</a></h3>
+<ul>
+<li>Launch of first version of the game (roulette, tasks, team combat and rankings)</li>
+<li>Adventure Forest map</li>
+<li>Launch of the prize pool</li>
+</ul>
+<hr />
+<p>CHIRPY REVERIE IS APPROACHING...</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
